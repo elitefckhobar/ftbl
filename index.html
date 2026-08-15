@@ -4,15 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-  <title>Riverside FC — Official Website</title>
-
+  <title>Elite FC — Official Website</title>
 
   <style>
     :root {
       --black: #111111;
       --black-soft: #202020;
-      --gray-dark: #4c4c4c;
       --gray: #777777;
       --gray-light: #eeeeee;
       --gray-pale: #f6f6f6;
@@ -22,18 +19,15 @@
       --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
     }
 
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       color: var(--black);
@@ -43,18 +37,15 @@
       overflow-x: hidden;
     }
 
-
     a {
       color: inherit;
       text-decoration: none;
     }
 
-
     .container {
       width: min(1160px, calc(100% - 40px));
       margin: auto;
     }
-
 
     .navbar {
       position: fixed;
@@ -68,14 +59,12 @@
       backdrop-filter: blur(12px);
     }
 
-
     .nav-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 76px;
     }
-
 
     .logo {
       display: flex;
@@ -85,7 +74,6 @@
       font-size: 1.15rem;
       font-weight: 900;
     }
-
 
     .logo-mark {
       display: grid;
@@ -101,7 +89,6 @@
       transform: rotate(-8deg);
     }
 
-
     .nav-links {
       display: flex;
       align-items: center;
@@ -111,12 +98,10 @@
       font-weight: 700;
     }
 
-
     .nav-links a {
       position: relative;
       transition: color 0.2s ease;
     }
-
 
     .nav-links a::after {
       position: absolute;
@@ -130,16 +115,13 @@
       transition: transform 0.2s ease;
     }
 
-
     .nav-links a:hover {
       color: var(--white);
     }
 
-
     .nav-links a:hover::after {
       transform: scaleX(1);
     }
-
 
     .nav-button {
       padding: 11px 18px;
@@ -150,17 +132,14 @@
       transition: 0.2s ease;
     }
 
-
     .nav-button:hover {
       color: var(--white);
       background: var(--accent);
     }
 
-
     .menu-checkbox {
       display: none;
     }
-
 
     .menu-toggle {
       display: none;
@@ -168,7 +147,6 @@
       font-size: 1.8rem;
       cursor: pointer;
     }
-
 
     .hero {
       position: relative;
@@ -189,7 +167,6 @@
       overflow: hidden;
     }
 
-
     .hero::before {
       position: absolute;
       top: -190px;
@@ -200,7 +177,6 @@
       border-radius: 50%;
       content: "";
     }
-
 
     .hero::after {
       position: absolute;
@@ -213,7 +189,6 @@
       content: "";
     }
 
-
     .hero-grid {
       position: relative;
       z-index: 1;
@@ -222,11 +197,9 @@
       align-items: center;
     }
 
-
     .hero-content {
       max-width: 760px;
     }
-
 
     .hero-tag {
       display: inline-flex;
@@ -244,14 +217,12 @@
       text-transform: uppercase;
     }
 
-
     .hero-tag span {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--accent);
     }
-
 
     .hero h1 {
       max-width: 700px;
@@ -262,13 +233,11 @@
       text-transform: uppercase;
     }
 
-
     .hero h1 em {
       color: var(--gray-light);
       font-style: normal;
       text-shadow: 3px 3px 0 var(--accent);
     }
-
 
     .hero-description {
       max-width: 570px;
@@ -277,13 +246,11 @@
       font-size: 1.08rem;
     }
 
-
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 13px;
     }
-
 
     .button {
       display: inline-flex;
@@ -296,12 +263,10 @@
       transition: 0.25s ease;
     }
 
-
     .button-white {
       color: var(--black);
       background: var(--white);
     }
-
 
     .button-white:hover {
       color: var(--white);
@@ -309,30 +274,25 @@
       transform: translateY(-2px);
     }
 
-
     .button-outline {
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, 0.45);
     }
-
 
     .button-outline:hover {
       border-color: var(--white);
       background: rgba(255, 255, 255, 0.1);
     }
 
-
     section {
       padding: 100px 0;
     }
-
 
     .section-heading {
       max-width: 680px;
       margin: 0 auto 48px;
       text-align: center;
     }
-
 
     .section-label {
       display: inline-flex;
@@ -346,14 +306,12 @@
       text-transform: uppercase;
     }
 
-
     .section-label::before {
       width: 24px;
       height: 3px;
       background: var(--accent);
       content: "";
     }
-
 
     .section-heading h2 {
       margin-bottom: 13px;
@@ -364,23 +322,20 @@
       text-transform: uppercase;
     }
 
-
     .section-heading p {
       color: var(--gray);
     }
 
-
-    .upcoming {
+    .upcoming,
+    .links-section {
       background: var(--white);
     }
-
 
     .matches-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-
 
     .match-card {
       position: relative;
@@ -391,7 +346,6 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
       transition: 0.25s ease;
     }
-
 
     .match-card::before {
       position: absolute;
@@ -404,13 +358,11 @@
       content: "";
     }
 
-
     .match-card:hover {
       border-color: var(--black);
       box-shadow: var(--shadow);
       transform: translateY(-6px);
     }
-
 
     .match-card-top {
       display: flex;
@@ -423,11 +375,9 @@
       text-transform: uppercase;
     }
 
-
     .competition {
       color: var(--accent);
     }
-
 
     .match-teams {
       display: grid;
@@ -436,7 +386,6 @@
       gap: 12px;
       text-align: center;
     }
-
 
     .small-badge {
       display: grid;
@@ -451,18 +400,15 @@
       font-weight: 900;
     }
 
-
     .match-team-name {
       font-size: 0.86rem;
       font-weight: 900;
     }
 
-
     .match-vs {
       color: var(--accent);
       font-weight: 900;
     }
-
 
     .match-card-bottom {
       margin-top: 22px;
@@ -473,11 +419,9 @@
       font-size: 0.8rem;
     }
 
-
     .history {
       background: var(--gray-pale);
     }
-
 
     .history-table-wrap {
       overflow-x: auto;
@@ -487,13 +431,11 @@
       box-shadow: var(--shadow);
     }
 
-
     .history-table {
       width: 100%;
       min-width: 650px;
       border-collapse: collapse;
     }
-
 
     .history-table th,
     .history-table td {
@@ -501,7 +443,6 @@
       text-align: left;
       border-bottom: 1px solid var(--border);
     }
-
 
     .history-table th {
       color: var(--gray);
@@ -511,11 +452,9 @@
       text-transform: uppercase;
     }
 
-
     .history-table tr:last-child td {
       border-bottom: 0;
     }
-
 
     .result {
       display: inline-flex;
@@ -529,34 +468,28 @@
       font-weight: 900;
     }
 
-
     .win {
       background: #3d9862;
     }
-
 
     .draw {
       color: var(--black);
       background: #e2ad35;
     }
 
-
     .loss {
       background: #c74343;
     }
 
-
     .team {
       background: var(--white);
     }
-
 
     .players-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
-
 
     .player-card {
       overflow: hidden;
@@ -566,13 +499,11 @@
       transition: 0.25s ease;
     }
 
-
     .player-card:hover {
       border-color: var(--black);
       box-shadow: var(--shadow);
       transform: translateY(-6px);
     }
-
 
     .player-image {
       display: grid;
@@ -591,11 +522,9 @@
       font-weight: 900;
     }
 
-
     .player-info {
       padding: 17px;
     }
-
 
     .player-number {
       color: var(--accent);
@@ -603,25 +532,299 @@
       font-weight: 900;
     }
 
-
     .player-info h3 {
       margin-top: 3px;
       font-size: 1.05rem;
     }
-
 
     .player-position {
       color: var(--gray);
       font-size: 0.84rem;
     }
 
+    /* PITCH POSITIONING */
+
+    .pitch-positioning {
+      margin-top: 70px;
+    }
+
+    .pitch-heading {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .pitch-heading h3 {
+      margin: 4px 0 6px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .pitch-heading p {
+      color: var(--gray);
+    }
+
+    .football-pitch {
+      position: relative;
+      width: min(100%, 760px);
+      height: 620px;
+      margin: auto;
+      overflow: hidden;
+      border: 4px solid var(--white);
+      border-radius: 12px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.045) 50%,
+          transparent 50%
+        ),
+        #3d9862;
+      box-shadow: var(--shadow);
+    }
+
+    .football-pitch::before,
+    .football-pitch::after {
+      position: absolute;
+      left: 50%;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    .football-pitch::before {
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .football-pitch::after {
+      top: 50%;
+      width: 108px;
+      height: 108px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .pitch-line {
+      position: absolute;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .halfway-line {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    .pitch-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--white);
+      transform: translate(-50%, -50%);
+    }
+
+    .penalty-area {
+      position: absolute;
+      left: 50%;
+      z-index: 1;
+      width: 260px;
+      height: 105px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      transform: translateX(-50%);
+    }
+
+    .penalty-top {
+      top: 0;
+      border-top: 0;
+    }
+
+    .penalty-bottom {
+      bottom: 0;
+      border-bottom: 0;
+    }
+
+    .goal-area {
+      position: absolute;
+      left: 50%;
+      z-index: 1;
+      width: 110px;
+      height: 45px;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      transform: translateX(-50%);
+    }
+
+    .goal-top {
+      top: 0;
+      border-top: 0;
+    }
+
+    .goal-bottom {
+      bottom: 0;
+      border-bottom: 0;
+    }
+
+    .pitch-player {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+      width: 100px;
+      color: var(--white);
+      text-align: center;
+      font-size: 0.72rem;
+      transform: translate(-50%, -50%);
+    }
+
+    .pitch-player strong {
+      padding: 3px 6px;
+      border-radius: 4px;
+      background: rgba(17, 17, 17, 0.8);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .position-badge {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: var(--black);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      background: var(--white);
+      font-size: 0.65rem;
+      font-weight: 900;
+    }
+
+    .goalkeeper {
+      bottom: 7%;
+      left: 50%;
+    }
+
+    .defender-left {
+      bottom: 23%;
+      left: 25%;
+    }
+
+    .defender-center {
+      bottom: 19%;
+      left: 50%;
+    }
+
+    .defender-right {
+      bottom: 23%;
+      left: 75%;
+    }
+
+    .midfielder-left {
+      bottom: 39%;
+      left: 25%;
+    }
+
+    .midfielder-center {
+      bottom: 35%;
+      left: 50%;
+    }
+
+    .midfielder-right {
+      bottom: 39%;
+      left: 75%;
+    }
+
+    .forward-left {
+      top: 24%;
+      left: 35%;
+    }
+
+    .forward-center {
+      top: 17%;
+      left: 50%;
+    }
+
+    .winger-right {
+      top: 24%;
+      left: 66%;
+    }
+
+    /* LINKS SECTION */
+
+    .links-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--gray-pale);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+      transition: 0.25s ease;
+    }
+
+    .links-card:hover {
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+    }
+
+    .link-icon {
+      display: block;
+      flex: 0 0 auto;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .link-content {
+      flex: 1;
+    }
+
+    .link-label {
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .link-content h3 {
+      margin: 3px 0;
+      font-size: 1.35rem;
+    }
+
+    .link-content p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .link-button {
+      color: var(--white);
+      background: var(--black);
+    }
+
+    .link-button:hover {
+      color: var(--white);
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
 
     footer {
       padding: 28px 0;
       color: #bdbdbd;
       background: #080808;
     }
-
 
     .footer-content {
       display: flex;
@@ -630,18 +833,15 @@
       gap: 20px;
     }
 
-
     .footer-links {
       display: flex;
       gap: 20px;
       font-size: 0.88rem;
     }
 
-
     .footer-links a:hover {
       color: var(--white);
     }
-
 
     .click-sparkle {
       position: fixed;
@@ -658,13 +858,11 @@
       animation: tinySparkle 650ms ease-out forwards;
     }
 
-
     @keyframes tinySparkle {
       0% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
       }
-
 
       100% {
         opacity: 0;
@@ -677,32 +875,20 @@
       }
     }
 
-
     @media (prefers-reduced-motion: reduce) {
       .click-sparkle {
         display: none;
       }
     }
 
-
-    .menu-checkbox {
-      display: none;
-    }
-
-
     @media (max-width: 980px) {
       .nav-button {
         display: none;
       }
 
-
       .menu-toggle {
         display: block;
-        color: var(--white);
-        font-size: 1.8rem;
-        cursor: pointer;
       }
-
 
       .nav-links {
         position: absolute;
@@ -718,43 +904,44 @@
         background: var(--black-soft);
       }
 
-
       .nav-links a {
         padding: 13px;
       }
 
-
       .menu-checkbox:checked ~ .nav-links {
         display: flex;
       }
-
 
       .players-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-
     @media (max-width: 700px) {
       .container {
         width: calc(100% - 28px);
       }
 
-
       section {
         padding: 75px 0;
       }
-
 
       .matches-grid {
         grid-template-columns: 1fr;
       }
 
-
       .players-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .links-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .link-button {
+        width: 100%;
+      }
 
       .footer-content {
         align-items: flex-start;
@@ -762,6 +949,38 @@
       }
     }
 
+    @media (max-width: 600px) {
+      .football-pitch {
+        height: 540px;
+      }
+
+      .pitch-player {
+        width: 78px;
+      }
+
+      .pitch-player strong {
+        max-width: 88px;
+        overflow: hidden;
+        font-size: 0.62rem;
+        text-overflow: ellipsis;
+      }
+
+      .position-badge {
+        width: 36px;
+        height: 36px;
+        font-size: 0.56rem;
+      }
+
+      .penalty-area {
+        width: 190px;
+        height: 85px;
+      }
+
+      .goal-area {
+        width: 85px;
+        height: 35px;
+      }
+    }
 
     @media (max-width: 480px) {
       .hero h1 {
@@ -769,17 +988,14 @@
         letter-spacing: -3px;
       }
 
-
       .hero-buttons {
         flex-direction: column;
         align-items: stretch;
       }
 
-
       .players-grid {
         grid-template-columns: 1fr;
       }
-
 
       .footer-links {
         flex-wrap: wrap;
@@ -788,41 +1004,34 @@
   </style>
 </head>
 
-
 <body>
-
 
   <header class="navbar">
     <div class="container nav-content">
       <a href="#home" class="logo">
-        <span class="logo-mark">R</span>
-        Riverside FC
+        <span class="logo-mark">E</span>
+        Elite FC
       </a>
 
-
       <input type="checkbox" id="menuCheckbox" class="menu-checkbox" />
-
 
       <label for="menuCheckbox" class="menu-toggle" aria-label="Open navigation menu">
         ☰
       </label>
-
 
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#upcoming">Upcoming Matches</a>
         <a href="#history">Match History</a>
         <a href="#team">Meet the Squad</a>
+        <a href="#links">Links</a>
       </nav>
-
 
       <a href="#upcoming" class="nav-button">Matchday</a>
     </div>
   </header>
 
-
   <main>
-
 
     <section class="hero" id="home">
       <div class="container hero-grid">
@@ -832,18 +1041,15 @@
             Matchday mode activated
           </div>
 
-
           <h1>
             This is our<br />
             <em>territory.</em>
           </h1>
 
-
           <p class="hero-description">
-            Welcome to Riverside FC. Follow the fixtures, relive the results,
+            Welcome to Elite FC. Follow the fixtures, relive the results,
             meet the squad, and experience every moment with the club.
           </p>
-
 
           <div class="hero-buttons">
             <a href="#upcoming" class="button button-white">View fixtures</a>
@@ -853,103 +1059,88 @@
       </div>
     </section>
 
-
     <section class="upcoming" id="upcoming">
       <div class="container">
         <div class="section-heading">
           <span class="section-label">Upcoming Matches</span>
           <h2>Next fixtures</h2>
-          <p>Every match. Every challenge. Every chance to make history.</p>
+          <p>Upcoming matches....</p>
         </div>
-
 
         <div class="matches-grid">
           <article class="match-card">
             <div class="match-card-top">
-              <span class="competition">League Match</span>
-              <span>24 Aug</span>
+              <span class="competition">Friendly Match</span>
+              <span>-- ---</span>
             </div>
-
 
             <div class="match-teams">
-              <div>
-                <div class="small-badge">R</div>
-                <div class="match-team-name">Riverside FC</div>
-              </div>
-
-
-              <div class="match-vs">VS</div>
-
-
-              <div>
-                <div class="small-badge">H</div>
-                <div class="match-team-name">Harbor United</div>
-              </div>
-            </div>
-
-
-            <div class="match-card-bottom">Riverside Stadium · 19:30</div>
-          </article>
-
-
-          <article class="match-card">
-            <div class="match-card-top">
-              <span class="competition">National Cup</span>
-              <span>30 Aug</span>
-            </div>
-
-
-            <div class="match-teams">
-              <div>
-                <div class="small-badge">M</div>
-                <div class="match-team-name">Mountain City</div>
-              </div>
-
-
-              <div class="match-vs">VS</div>
-
-
-              <div>
-                <div class="small-badge">R</div>
-                <div class="match-team-name">Riverside FC</div>
-              </div>
-            </div>
-
-
-            <div class="match-card-bottom">Mountain Arena · 17:00</div>
-          </article>
-
-
-          <article class="match-card">
-            <div class="match-card-top">
-              <span class="competition">League Match</span>
-              <span>06 Sep</span>
-            </div>
-
-
-            <div class="match-teams">
-              <div>
-                <div class="small-badge">R</div>
-                <div class="match-team-name">Riverside FC</div>
-              </div>
-
-
-              <div class="match-vs">VS</div>
-
-
               <div>
                 <div class="small-badge">E</div>
-                <div class="match-team-name">Eastside Athletic</div>
+                <div class="match-team-name">Elite FC</div>
+              </div>
+
+              <div class="match-vs">VS</div>
+
+              <div>
+                <div class="small-badge">-</div>
+                <div class="match-team-name">--- FC</div>
               </div>
             </div>
 
+            <div class="match-card-bottom">--- Pitch · 00:00</div>
+          </article>
 
-            <div class="match-card-bottom">Riverside Stadium · 20:00</div>
+          <article class="match-card">
+            <div class="match-card-top">
+              <span class="competition">Friendly Match</span>
+              <span>20 Aug 2026</span>
+            </div>
+
+            <div class="match-teams">
+              <div>
+                <div class="small-badge">E</div>
+                <div class="match-team-name">Elite FC</div>
+              </div>
+
+              <div class="match-vs">VS</div>
+
+              <div>
+                <div class="small-badge">M</div>
+                <div class="match-team-name">Mouisness FC</div>
+              </div>
+            </div>
+
+            <div class="match-card-bottom">
+              Glory/not fixed Pitch · --:00
+            </div>
+          </article>
+
+          <article class="match-card">
+            <div class="match-card-top">
+              <span class="competition">Friendly Match</span>
+              <span>-- ---</span>
+            </div>
+
+            <div class="match-teams">
+              <div>
+                <div class="small-badge">E</div>
+                <div class="match-team-name">Elite FC</div>
+              </div>
+
+              <div class="match-vs">VS</div>
+
+              <div>
+                <div class="small-badge">-</div>
+                <div class="match-team-name">--- FC</div>
+              </div>
+            </div>
+
+            <div class="match-card-bottom">---- Pitch · 00:00</div>
           </article>
         </div>
       </div>
     </section>
-
 
     <section class="history" id="history">
       <div class="container">
@@ -958,7 +1149,6 @@
           <h2>Match results</h2>
           <p>The Matches.</p>
         </div>
-
 
         <div class="history-table-wrap">
           <table class="history-table">
@@ -972,41 +1162,29 @@
               </tr>
             </thead>
 
-
             <tbody>
               <tr>
                 <td>8/13/2026</td>
                 <td>Friendly Match</td>
                 <td>FootyLads FC</td>
                 <td>3 - 1</td>
-                <td><span class="result loss">L</span></td>
+                <td><span class="result win">W</span></td>
               </tr>
-
 
               <tr>
                 <td>---</td>
                 <td>One sided match [5v7]</td>
                 <td>Hydra FC</td>
                 <td>4 - 8</td>
-                <td><span class="result draw">?</span></td>
+                <td><span class="result loss">L</span></td>
               </tr>
-
 
               <tr>
                 <td>---</td>
                 <td>Friendly Match</td>
                 <td>Footylads FC</td>
                 <td>5 - 5</td>
-                <td><span class="result dr">W</span></td>
-              </tr>
-
-
-              <tr>
-                <td>27 Jul 2026</td>
-                <td>League Match</td>
-                <td>Northbridge FC</td>
-                <td>0 - 1</td>
-                <td><span class="result loss">L</span></td>
+                <td><span class="result draw">D</span></td>
               </tr>
             </tbody>
           </table>
@@ -1014,36 +1192,34 @@
       </div>
     </section>
 
-
     <section class="team" id="team">
       <div class="container">
+
         <div class="section-heading">
           <span class="section-label">Meet the Squad</span>
-          <h2>Our starting eleven</h2>
+          <h2>Our Starting/Sub Players</h2>
           <p>The players.</p>
         </div>
 
-
         <div class="players-grid">
+
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Goalkeeper</span>
-              <h3>Mustafa</h3>
+              <h3>Mustafa R.</h3>
               <span class="player-position">GK</span>
             </div>
           </article>
-
 
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Defender</span>
-              <h3>Emaaz</h3>
+              <h3>Emaaz B.</h3>
               <span class="player-position">DEF</span>
             </div>
           </article>
-
 
           <article class="player-card">
             <div class="player-image">?</div>
@@ -1054,107 +1230,214 @@
             </div>
           </article>
 
-
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Defender</span>
-              <h3>Hassan</h3>
+              <h3>Hassan Z.</h3>
               <span class="player-position">DEF</span>
             </div>
           </article>
 
-
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Defender</span>
-              <h3>Azan Babar</h3>
+              <h3>Azan B.</h3>
               <span class="player-position">CB</span>
             </div>
           </article>
 
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Midfielder</span>
+              <h3>Taha I.</h3>
+              <span class="player-position">Not fixed</span>
+            </div>
+          </article>
 
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Midfielder</span>
-              <h3>Taha</h3>
-              <span class="player-position">not fixed</span>
+              <h3>Faizan M. (C)</h3>
+              <span class="player-position">Captain</span>
             </div>
           </article>
-
 
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Midfielder</span>
-              <h3>Faizan</h3>
-              <span class="player-position">not fixed</span>
+              <h3>Huzaifa I.</h3>
+              <span class="player-position">Not fixed</span>
             </div>
           </article>
-
-
-          <article class="player-card">
-            <div class="player-image">?</div>
-            <div class="player-info">
-              <span class="player-number">? · Midfielder</span>
-              <h3>Huzaifa</h3>
-              <span class="player-position">not fixed</span>
-            </div>
-          </article>
-
 
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Forward</span>
-              <h3>Murtaza</h3>
+              <h3>Murtaza R.</h3>
               <span class="player-position">Striker</span>
             </div>
           </article>
 
-
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Forward</span>
-              <h3>Ahmad</h3>
+              <h3>Ahmad Z.</h3>
               <span class="player-position">Attacking Midfielder</span>
             </div>
           </article>
-
 
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
               <span class="player-number">? · Goalkeeper</span>
-              <h3>Abdullah</h3>
+              <h3>Abdullah R.</h3>
               <span class="player-position">GK</span>
             </div>
           </article>
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Defender [Learning]</span>
+              <h3>Saad Z.</h3>
+              <span class="player-position">Learning</span>
+            </div>
+          </article>
+
         </div>
+
+        <div class="pitch-positioning">
+          <div class="pitch-heading">
+            <span class="section-label">Tactical Setup</span>
+            <h3>Pitch positioning</h3>
+            <p>Our current starting formation.</p>
+          </div>
+
+          <div class="football-pitch" aria-label="Elite FC pitch positioning">
+
+            <div class="pitch-line halfway-line"></div>
+            <div class="pitch-circle"></div>
+
+            <div class="penalty-area penalty-top"></div>
+            <div class="goal-area goal-top"></div>
+            <div class="penalty-area penalty-bottom"></div>
+            <div class="goal-area goal-bottom"></div>
+
+            <div class="pitch-player goalkeeper">
+              <span class="position-badge">GK</span>
+              <strong>Mustafa R.</strong>
+            </div>
+
+            <div class="pitch-player defender defender-left">
+              <span class="position-badge">DEF</span>
+              <strong>Emaaz B.</strong>
+            </div>
+
+            <div class="pitch-player defender defender-center">
+              <span class="position-badge">DEF</span>
+              <strong>Younus</strong>
+            </div>
+
+            <div class="pitch-player defender defender-right">
+              <span class="position-badge">DEF</span>
+              <strong>Hassan Z.</strong>
+            </div>
+
+            <div class="pitch-player midfielder midfielder-left">
+              <span class="position-badge">MID</span>
+              <strong>Taha I.</strong>
+            </div>
+
+            <div class="pitch-player midfielder midfielder-center">
+              <span class="position-badge">C</span>
+              <strong>Faizan M.</strong>
+            </div>
+
+            <!-- Saad Z. is now the right midfielder -->
+            <div class="pitch-player midfielder midfielder-right">
+              <span class="position-badge">MID</span>
+              <strong>Saad Z.</strong>
+            </div>
+
+            <div class="pitch-player forward forward-left">
+              <span class="position-badge">LW</span>
+              <strong>Ahmad Z.</strong>
+            </div>
+
+            <div class="pitch-player forward forward-center">
+              <span class="position-badge">ST</span>
+              <strong>Murtaza R.</strong>
+            </div>
+
+            <!-- Huzaifa I. is now the right winger -->
+            <div class="pitch-player winger winger-right">
+              <span class="position-badge">RW</span>
+              <strong>Huzaifa I.</strong>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <section class="links-section" id="links">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Find Us Online</span>
+          <h2>Official links</h2>
+          <p>Follow Elite FC beyond matchday.</p>
+        </div>
+
+        <div class="links-card">
+          <img
+            class="link-icon"
+            src="test.jfif"
+            alt="Elite FC Instagram logo"
+          />
+
+          <div class="link-content">
+            <span class="link-label">Instagram</span>
+            <h3>@elite_fcest2026</h3>
+            <p>Follow us for updates, matches, and inquiries.</p>
+          </div>
+
+          <a
+            href="https://www.instagram.com/elite_fcest2026/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button link-button"
+          >
+            Visit Instagram
+          </a>
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
-
   <footer>
     <div class="container footer-content">
-      <p>© 2026 Riverside FC. All rights reserved.</p>
-
+      <p>© 2026 Elite FC. All rights reserved.</p>
 
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#upcoming">Matches</a>
         <a href="#history">History</a>
         <a href="#team">Meet the Squad</a>
+        <a href="#links">Links</a>
       </div>
     </div>
   </footer>
-
 
   <script>
     document.addEventListener("click", function (event) {
@@ -1165,16 +1448,13 @@
         "#d9a832"
       ];
 
-
       for (let i = 0; i < 7; i++) {
         const sparkle = document.createElement("span");
-
 
         const angle = Math.random() * Math.PI * 2;
         const distance = 15 + Math.random() * 35;
         const size = 3 + Math.random() * 4;
         const color = colors[Math.floor(Math.random() * colors.length)];
-
 
         sparkle.className = "click-sparkle";
         sparkle.style.left = `${event.clientX}px`;
@@ -1182,24 +1462,19 @@
         sparkle.style.width = `${size}px`;
         sparkle.style.height = `${size}px`;
 
-
         sparkle.style.setProperty(
           "--spark-x",
           `${Math.cos(angle) * distance}px`
         );
-
 
         sparkle.style.setProperty(
           "--spark-y",
           `${Math.sin(angle) * distance}px`
         );
 
-
         sparkle.style.setProperty("--spark-color", color);
 
-
         document.body.appendChild(sparkle);
-
 
         setTimeout(() => {
           sparkle.remove();
@@ -1207,5 +1482,6 @@
       }
     });
   </script>
+
 </body>
 </html>
