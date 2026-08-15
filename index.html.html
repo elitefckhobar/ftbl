@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <title>Riverside FC — Official Website</title>
+
+
+  <style>
+    :root {
+      --black: #111111;
+      --black-soft: #202020;
+      --gray-dark: #4c4c4c;
+      --gray: #777777;
+      --gray-light: #eeeeee;
+      --gray-pale: #f6f6f6;
+      --white: #ffffff;
+      --accent: #a51d1d;
+      --border: #dddddd;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      color: var(--black);
+      background: var(--gray-pale);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      color: var(--white);
+      background: rgba(17, 17, 17, 0.97);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(12px);
+    }
+
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+
+    .logo-mark {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      color: var(--black);
+      border: 3px solid var(--white);
+      border-radius: 10px;
+      background: var(--white);
+      font-size: 1.1rem;
+      font-weight: 900;
+      transform: rotate(-8deg);
+    }
+
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #d5d5d5;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+
+    .nav-links a {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      background: var(--white);
+      content: "";
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+
+    .nav-button {
+      padding: 11px 18px;
+      color: var(--black);
+      border-radius: 5px;
+      background: var(--white);
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+
+    .nav-button:hover {
+      color: var(--white);
+      background: var(--accent);
+    }
+
+
+    .menu-checkbox {
+      display: none;
+    }
+
+
+    .menu-toggle {
+      display: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 650px;
+      padding: 150px 0 100px;
+      color: var(--white);
+      background:
+        linear-gradient(115deg, rgba(17, 17, 17, 0.98), rgba(17, 17, 17, 0.83)),
+        repeating-linear-gradient(
+          90deg,
+          #171717 0,
+          #171717 80px,
+          #202020 80px,
+          #202020 160px
+        );
+      overflow: hidden;
+    }
+
+
+    .hero::before {
+      position: absolute;
+      top: -190px;
+      right: -100px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+
+    .hero::after {
+      position: absolute;
+      right: -180px;
+      bottom: -350px;
+      width: 680px;
+      height: 680px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+
+    .hero-tag span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+
+    .hero h1 {
+      max-width: 700px;
+      margin-bottom: 24px;
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      line-height: 0.93;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+    }
+
+
+    .hero h1 em {
+      color: var(--gray-light);
+      font-style: normal;
+      text-shadow: 3px 3px 0 var(--accent);
+    }
+
+
+    .hero-description {
+      max-width: 570px;
+      margin-bottom: 30px;
+      color: #cfcfcf;
+      font-size: 1.08rem;
+    }
+
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 5px;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+
+    .button-white {
+      color: var(--black);
+      background: var(--white);
+    }
+
+
+    .button-white:hover {
+      color: var(--white);
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+
+    .button-outline {
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+
+    .button-outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+
+    section {
+      padding: 100px 0;
+    }
+
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+
+    .section-label::before {
+      width: 24px;
+      height: 3px;
+      background: var(--accent);
+      content: "";
+    }
+
+
+    .section-heading h2 {
+      margin-bottom: 13px;
+      color: var(--black);
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+    }
+
+
+    .section-heading p {
+      color: var(--gray);
+    }
+
+
+    .upcoming {
+      background: var(--white);
+    }
+
+
+    .matches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+
+    .match-card {
+      position: relative;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+      transition: 0.25s ease;
+    }
+
+
+    .match-card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 8px 8px 0 0;
+      background: var(--black);
+      content: "";
+    }
+
+
+    .match-card:hover {
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+    }
+
+
+    .match-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      color: var(--gray);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+
+    .competition {
+      color: var(--accent);
+    }
+
+
+    .match-teams {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+
+    .small-badge {
+      display: grid;
+      place-items: center;
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 8px;
+      color: var(--white);
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      background: var(--black);
+      font-weight: 900;
+    }
+
+
+    .match-team-name {
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+
+    .match-vs {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+
+    .match-card-bottom {
+      margin-top: 22px;
+      padding-top: 17px;
+      border-top: 1px solid var(--border);
+      color: var(--gray);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+
+    .history {
+      background: var(--gray-pale);
+    }
+
+
+    .history-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+
+    .history-table {
+      width: 100%;
+      min-width: 650px;
+      border-collapse: collapse;
+    }
+
+
+    .history-table th,
+    .history-table td {
+      padding: 18px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .history-table th {
+      color: var(--gray);
+      background: #fafafa;
+      font-size: 0.76rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+
+    .history-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+
+    .result {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+
+    .win {
+      background: #3d9862;
+    }
+
+
+    .draw {
+      color: var(--black);
+      background: #e2ad35;
+    }
+
+
+    .loss {
+      background: #c74343;
+    }
+
+
+    .team {
+      background: var(--white);
+    }
+
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+
+    .player-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      transition: 0.25s ease;
+    }
+
+
+    .player-card:hover {
+      border-color: var(--black);
+      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+    }
+
+
+    .player-image {
+      display: grid;
+      place-items: center;
+      height: 170px;
+      color: var(--white);
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 0 30%,
+          rgba(255, 255, 255, 0.1) 31% 32%,
+          transparent 33%
+        ),
+        linear-gradient(135deg, #3e3e3e, #101010);
+      font-size: 3.2rem;
+      font-weight: 900;
+    }
+
+
+    .player-info {
+      padding: 17px;
+    }
+
+
+    .player-number {
+      color: var(--accent);
+      font-size: 0.77rem;
+      font-weight: 900;
+    }
+
+
+    .player-info h3 {
+      margin-top: 3px;
+      font-size: 1.05rem;
+    }
+
+
+    .player-position {
+      color: var(--gray);
+      font-size: 0.84rem;
+    }
+
+
+    footer {
+      padding: 28px 0;
+      color: #bdbdbd;
+      background: #080808;
+    }
+
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.88rem;
+    }
+
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+
+    .click-sparkle {
+      position: fixed;
+      z-index: 9999;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--spark-color);
+      box-shadow:
+        0 0 5px var(--spark-color),
+        0 0 12px var(--spark-color),
+        0 0 20px var(--spark-color);
+      pointer-events: none;
+      animation: tinySparkle 650ms ease-out forwards;
+    }
+
+
+    @keyframes tinySparkle {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+
+      100% {
+        opacity: 0;
+        transform:
+          translate(
+            calc(-50% + var(--spark-x)),
+            calc(-50% + var(--spark-y))
+          )
+          scale(0);
+      }
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      .click-sparkle {
+        display: none;
+      }
+    }
+
+
+    .menu-checkbox {
+      display: none;
+    }
+
+
+    @media (max-width: 980px) {
+      .nav-button {
+        display: none;
+      }
+
+
+      .menu-toggle {
+        display: block;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border-radius: 8px;
+        background: var(--black-soft);
+      }
+
+
+      .nav-links a {
+        padding: 13px;
+      }
+
+
+      .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+      }
+
+
+      .players-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+
+    @media (max-width: 700px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+
+      section {
+        padding: 75px 0;
+      }
+
+
+      .matches-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .players-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 3.35rem;
+        letter-spacing: -3px;
+      }
+
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+
+      .players-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#home" class="logo">
+        <span class="logo-mark">R</span>
+        Riverside FC
+      </a>
+
+
+      <input type="checkbox" id="menuCheckbox" class="menu-checkbox" />
+
+
+      <label for="menuCheckbox" class="menu-toggle" aria-label="Open navigation menu">
+        ☰
+      </label>
+
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#upcoming">Upcoming Matches</a>
+        <a href="#history">Match History</a>
+        <a href="#team">Meet the Squad</a>
+      </nav>
+
+
+      <a href="#upcoming" class="nav-button">Matchday</a>
+    </div>
+  </header>
+
+
+  <main>
+
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span></span>
+            Matchday mode activated
+          </div>
+
+
+          <h1>
+            This is our<br />
+            <em>territory.</em>
+          </h1>
+
+
+          <p class="hero-description">
+            Welcome to Riverside FC. Follow the fixtures, relive the results,
+            meet the squad, and experience every moment with the club.
+          </p>
+
+
+          <div class="hero-buttons">
+            <a href="#upcoming" class="button button-white">View fixtures</a>
+            <a href="#team" class="button button-outline">Meet the squad</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="upcoming" id="upcoming">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Upcoming Matches</span>
+          <h2>Next fixtures</h2>
+          <p>Every match. Every challenge. Every chance to make history.</p>
+        </div>
+
+
+        <div class="matches-grid">
+          <article class="match-card">
+            <div class="match-card-top">
+              <span class="competition">League Match</span>
+              <span>24 Aug</span>
+            </div>
+
+
+            <div class="match-teams">
+              <div>
+                <div class="small-badge">R</div>
+                <div class="match-team-name">Riverside FC</div>
+              </div>
+
+
+              <div class="match-vs">VS</div>
+
+
+              <div>
+                <div class="small-badge">H</div>
+                <div class="match-team-name">Harbor United</div>
+              </div>
+            </div>
+
+
+            <div class="match-card-bottom">Riverside Stadium · 19:30</div>
+          </article>
+
+
+          <article class="match-card">
+            <div class="match-card-top">
+              <span class="competition">National Cup</span>
+              <span>30 Aug</span>
+            </div>
+
+
+            <div class="match-teams">
+              <div>
+                <div class="small-badge">M</div>
+                <div class="match-team-name">Mountain City</div>
+              </div>
+
+
+              <div class="match-vs">VS</div>
+
+
+              <div>
+                <div class="small-badge">R</div>
+                <div class="match-team-name">Riverside FC</div>
+              </div>
+            </div>
+
+
+            <div class="match-card-bottom">Mountain Arena · 17:00</div>
+          </article>
+
+
+          <article class="match-card">
+            <div class="match-card-top">
+              <span class="competition">League Match</span>
+              <span>06 Sep</span>
+            </div>
+
+
+            <div class="match-teams">
+              <div>
+                <div class="small-badge">R</div>
+                <div class="match-team-name">Riverside FC</div>
+              </div>
+
+
+              <div class="match-vs">VS</div>
+
+
+              <div>
+                <div class="small-badge">E</div>
+                <div class="match-team-name">Eastside Athletic</div>
+              </div>
+            </div>
+
+
+            <div class="match-card-bottom">Riverside Stadium · 20:00</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="history" id="history">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Match History</span>
+          <h2>Match results</h2>
+          <p>The Matches.</p>
+        </div>
+
+
+        <div class="history-table-wrap">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Competition</th>
+                <th>Opponent</th>
+                <th>Score</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+
+
+            <tbody>
+              <tr>
+                <td>8/13/2026</td>
+                <td>Friendly Match</td>
+                <td>FootyLads FC</td>
+                <td>3 - 1</td>
+                <td><span class="result loss">L</span></td>
+              </tr>
+
+
+              <tr>
+                <td>---</td>
+                <td>One sided match [5v7]</td>
+                <td>Hydra FC</td>
+                <td>4 - 8</td>
+                <td><span class="result draw">?</span></td>
+              </tr>
+
+
+              <tr>
+                <td>---</td>
+                <td>Friendly Match</td>
+                <td>Footylads FC</td>
+                <td>5 - 5</td>
+                <td><span class="result dr">W</span></td>
+              </tr>
+
+
+              <tr>
+                <td>27 Jul 2026</td>
+                <td>League Match</td>
+                <td>Northbridge FC</td>
+                <td>0 - 1</td>
+                <td><span class="result loss">L</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Meet the Squad</span>
+          <h2>Our starting eleven</h2>
+          <p>The players.</p>
+        </div>
+
+
+        <div class="players-grid">
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Goalkeeper</span>
+              <h3>Mustafa</h3>
+              <span class="player-position">GK</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Defender</span>
+              <h3>Emaaz</h3>
+              <span class="player-position">DEF</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Defender</span>
+              <h3>Younus</h3>
+              <span class="player-position">DEF</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Defender</span>
+              <h3>Hassan</h3>
+              <span class="player-position">DEF</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Defender</span>
+              <h3>Azan Babar</h3>
+              <span class="player-position">CB</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Midfielder</span>
+              <h3>Taha</h3>
+              <span class="player-position">not fixed</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Midfielder</span>
+              <h3>Faizan</h3>
+              <span class="player-position">not fixed</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Midfielder</span>
+              <h3>Huzaifa</h3>
+              <span class="player-position">not fixed</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Forward</span>
+              <h3>Murtaza</h3>
+              <span class="player-position">Striker</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Forward</span>
+              <h3>Ahmad</h3>
+              <span class="player-position">Attacking Midfielder</span>
+            </div>
+          </article>
+
+
+          <article class="player-card">
+            <div class="player-image">?</div>
+            <div class="player-info">
+              <span class="player-number">? · Goalkeeper</span>
+              <h3>Abdullah</h3>
+              <span class="player-position">GK</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 Riverside FC. All rights reserved.</p>
+
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#upcoming">Matches</a>
+        <a href="#history">History</a>
+        <a href="#team">Meet the Squad</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener("click", function (event) {
+      const colors = [
+        "#ffffff",
+        "#eeeeee",
+        "#a51d1d",
+        "#d9a832"
+      ];
+
+
+      for (let i = 0; i < 7; i++) {
+        const sparkle = document.createElement("span");
+
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 15 + Math.random() * 35;
+        const size = 3 + Math.random() * 4;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+
+        sparkle.className = "click-sparkle";
+        sparkle.style.left = `${event.clientX}px`;
+        sparkle.style.top = `${event.clientY}px`;
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+
+
+        sparkle.style.setProperty(
+          "--spark-x",
+          `${Math.cos(angle) * distance}px`
+        );
+
+
+        sparkle.style.setProperty(
+          "--spark-y",
+          `${Math.sin(angle) * distance}px`
+        );
+
+
+        sparkle.style.setProperty("--spark-color", color);
+
+
+        document.body.appendChild(sparkle);
+
+
+        setTimeout(() => {
+          sparkle.remove();
+        }, 700);
+      }
+    });
+  </script>
+</body>
+</html>
