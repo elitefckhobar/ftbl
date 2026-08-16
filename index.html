@@ -542,8 +542,6 @@
       font-size: 0.84rem;
     }
 
-    /* PITCH POSITIONING */
-
     .pitch-positioning {
       margin-top: 70px;
     }
@@ -757,8 +755,6 @@
       top: 24%;
       left: 66%;
     }
-
-    /* LINKS SECTION */
 
     .links-card {
       display: flex;
@@ -1005,7 +1001,6 @@
 </head>
 
 <body>
-
   <header class="navbar">
     <div class="container nav-content">
       <a href="#home" class="logo">
@@ -1015,7 +1010,11 @@
 
       <input type="checkbox" id="menuCheckbox" class="menu-checkbox" />
 
-      <label for="menuCheckbox" class="menu-toggle" aria-label="Open navigation menu">
+      <label
+        for="menuCheckbox"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+      >
         ☰
       </label>
 
@@ -1023,22 +1022,24 @@
         <a href="#home">Home</a>
         <a href="#upcoming">Upcoming Matches</a>
         <a href="#history">Match History</a>
-        <a href="#team">Meet the Squad</a>
+        <a href="#team">Meet the Team</a>
         <a href="#links">Links</a>
       </nav>
 
-      <a href="#upcoming" class="nav-button">Matchday</a>
+      <!-- Changed from href="#upcoming" to href="#links" -->
+      <a href="#links" class="nav-button">
+        Follow us on Insta!
+      </a>
     </div>
   </header>
 
   <main>
-
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-tag">
             <span></span>
-            Matchday mode activated
+            Elite FC's Official Website.
           </div>
 
           <h1>
@@ -1052,8 +1053,11 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="#upcoming" class="button button-white">View fixtures</a>
-            <a href="#team" class="button button-outline">Meet the squad</a>
+            <!-- Changed from href="#upcoming" to href="#links" -->
+            <a href="#links" class="button button-white">Links</a>
+            <a href="#team" class="button button-outline">
+              Meet the Team
+            </a>
           </div>
         </div>
       </div>
@@ -1088,7 +1092,9 @@
               </div>
             </div>
 
-            <div class="match-card-bottom">--- Pitch · 00:00</div>
+            <div class="match-card-bottom">
+              --- Pitch · 00:00
+            </div>
           </article>
 
           <article class="match-card">
@@ -1136,7 +1142,9 @@
               </div>
             </div>
 
-            <div class="match-card-bottom">---- Pitch · 00:00</div>
+            <div class="match-card-bottom">
+              ---- Pitch · 00:00
+            </div>
           </article>
         </div>
       </div>
@@ -1194,15 +1202,13 @@
 
     <section class="team" id="team">
       <div class="container">
-
         <div class="section-heading">
-          <span class="section-label">Meet the Squad</span>
+          <span class="section-label">Meet the Team</span>
           <h2>Our Starting/Sub Players</h2>
           <p>The players.</p>
         </div>
 
         <div class="players-grid">
-
           <article class="player-card">
             <div class="player-image">?</div>
             <div class="player-info">
@@ -1310,18 +1316,19 @@
               <span class="player-position">Learning</span>
             </div>
           </article>
-
         </div>
 
         <div class="pitch-positioning">
           <div class="pitch-heading">
             <span class="section-label">Tactical Setup</span>
-            <h3>Pitch positioning</h3>
-            <p>Our current starting formation.</p>
+            <h3>Pitch Positioning</h3>
+            <p>Our current formation.</p>
           </div>
 
-          <div class="football-pitch" aria-label="Elite FC pitch positioning">
-
+          <div
+            class="football-pitch"
+            aria-label="Elite FC pitch positioning"
+          >
             <div class="pitch-line halfway-line"></div>
             <div class="pitch-circle"></div>
 
@@ -1356,11 +1363,10 @@
             </div>
 
             <div class="pitch-player midfielder midfielder-center">
-              <span class="position-badge">C</span>
+              <span class="position-badge">CDM</span>
               <strong>Faizan M.</strong>
             </div>
 
-            <!-- Saad Z. is now the right midfielder -->
             <div class="pitch-player midfielder midfielder-right">
               <span class="position-badge">MID</span>
               <strong>Saad Z.</strong>
@@ -1376,21 +1382,17 @@
               <strong>Murtaza R.</strong>
             </div>
 
-            <!-- Huzaifa I. is now the right winger -->
             <div class="pitch-player winger winger-right">
               <span class="position-badge">RW</span>
               <strong>Huzaifa I.</strong>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
 
     <section class="links-section" id="links">
       <div class="container">
-
         <div class="section-heading">
           <span class="section-label">Find Us Online</span>
           <h2>Official links</h2>
@@ -1401,7 +1403,7 @@
           <img
             class="link-icon"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_AoJLW2LrzaLM18lohSCSwhVTD_LGsUIuGGCut7_p7w&s=10"
-            alt="INS"
+            alt="Instagram"
           />
 
           <div class="link-content">
@@ -1419,10 +1421,8 @@
             Visit Instagram
           </a>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -1433,7 +1433,7 @@
         <a href="#home">Home</a>
         <a href="#upcoming">Matches</a>
         <a href="#history">History</a>
-        <a href="#team">Meet the Squad</a>
+        <a href="#team">Meet the Team</a>
         <a href="#links">Links</a>
       </div>
     </div>
@@ -1476,12 +1476,4 @@
 
         document.body.appendChild(sparkle);
 
-        setTimeout(() => {
-          sparkle.remove();
-        }, 700);
-      }
-    });
-  </script>
-
-</body>
-</html>
+        setTimeout(() =>
