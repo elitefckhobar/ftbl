@@ -1439,7 +1439,7 @@
     </div>
   </footer>
 
-  <script>
+ <script>
     document.addEventListener("click", function (event) {
       const colors = [
         "#ffffff",
@@ -1476,4 +1476,11 @@
 
         document.body.appendChild(sparkle);
 
-        setTimeout(() =>
+        setTimeout(() => {
+          sparkle.remove();
+        }, 700);
+      }
+    });
+  </script>
+</body>
+</html>
