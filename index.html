@@ -8,15 +8,32 @@
 
   <style>
     :root {
-      --black: #111111;
-      --black-soft: #202020;
-      --gray: #777777;
-      --gray-light: #eeeeee;
-      --gray-pale: #f6f6f6;
+      --black: #101018;
+      --black-soft: #1b1b28;
+      --gray: #686879;
+      --gray-light: #f4f1f2;
+      --gray-pale: #f5f6fb;
       --white: #ffffff;
-      --accent: #a51d1d;
-      --border: #dddddd;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+      --accent: #b51f3b;
+      --accent-bright: #ef476f;
+      --accent-gold: #e8b44a;
+      --accent-blue: #6978ed;
+      --border: rgba(38, 35, 55, 0.12);
+      --shadow: 0 18px 45px rgba(31, 25, 55, 0.14);
+
+      --glass: rgba(255, 255, 255, 0.64);
+      --glass-border: rgba(255, 255, 255, 0.72);
+      --glass-shadow: 0 18px 50px rgba(35, 28, 64, 0.14);
+
+      --page-bg:
+        radial-gradient(ellipse at 8% 12%, rgba(239, 71, 111, 0.10), transparent 30%),
+        radial-gradient(ellipse at 92% 42%, rgba(105, 120, 237, 0.10), transparent 32%),
+        linear-gradient(145deg, #fbf8fa, #f1f3fb 55%, #f8f5f0);
+      --text-color: #101018;
+      --muted-color: #686879;
+      --card-bg: rgba(255, 255, 255, 0.64);
+      --nav-bg: rgba(16, 16, 24, 0.76);
+      --table-head-bg: rgba(105, 120, 237, 0.07);
     }
 
     * {
@@ -30,8 +47,8 @@
     }
 
     body {
-      color: var(--black);
-      background: var(--gray-pale);
+      color: var(--text-color);
+      background: var(--page-bg);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
@@ -54,9 +71,11 @@
       z-index: 1000;
       width: 100%;
       color: var(--white);
-      background: rgba(17, 17, 17, 0.97);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-      backdrop-filter: blur(12px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 30px rgba(10, 10, 20, 0.18);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      backdrop-filter: blur(22px) saturate(160%);
     }
 
     .nav-content {
@@ -75,24 +94,18 @@
       font-weight: 900;
     }
 
-    .logo-mark {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      color: var(--black);
-      border: 3px solid var(--white);
-      border-radius: 10px;
-      background: var(--white);
-      font-size: 1.1rem;
-      font-weight: 900;
-      transform: rotate(-8deg);
+    .club-crest-image {
+      display: block;
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 27px;
+      gap: 22px;
       color: #d5d5d5;
       font-size: 0.9rem;
       font-weight: 700;
@@ -109,7 +122,7 @@
       bottom: -8px;
       left: 0;
       height: 2px;
-      background: var(--white);
+      background: linear-gradient(90deg, var(--accent-bright), var(--accent-gold));
       content: "";
       transform: scaleX(0);
       transition: transform 0.2s ease;
@@ -123,18 +136,25 @@
       transform: scaleX(1);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .nav-button {
       padding: 11px 18px;
-      color: var(--black);
-      border-radius: 5px;
-      background: var(--white);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-bright), var(--accent) 60%, #87172e);
+      box-shadow: 0 8px 24px rgba(181, 31, 59, 0.24);
       font-weight: 900;
       transition: 0.2s ease;
     }
 
     .nav-button:hover {
-      color: var(--white);
-      background: var(--accent);
+      background: linear-gradient(120deg, #f06483, #a51d1d 65%, #76172b);
     }
 
     .menu-checkbox {
@@ -148,6 +168,61 @@
       cursor: pointer;
     }
 
+    .live-banner {
+      padding: 14px 0;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, #b51f3b, #ef476f 45%, #e8b44a);
+      box-shadow: 0 8px 25px rgba(181, 31, 59, 0.25);
+    }
+
+    .live-banner-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 18px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .banner-team {
+      font-weight: 900;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+    }
+
+    .elite-team {
+      color: #ffd9df;
+      text-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+
     .hero {
       position: relative;
       display: flex;
@@ -156,14 +231,9 @@
       padding: 150px 0 100px;
       color: var(--white);
       background:
-        linear-gradient(115deg, rgba(17, 17, 17, 0.98), rgba(17, 17, 17, 0.83)),
-        repeating-linear-gradient(
-          90deg,
-          #171717 0,
-          #171717 80px,
-          #202020 80px,
-          #202020 160px
-        );
+        radial-gradient(ellipse at 78% 24%, rgba(105, 120, 237, 0.32), transparent 34%),
+        radial-gradient(ellipse at 72% 85%, rgba(239, 71, 111, 0.25), transparent 38%),
+        linear-gradient(120deg, #11111b 5%, #241725 56%, #18203b);
       overflow: hidden;
     }
 
@@ -206,11 +276,13 @@
       align-items: center;
       gap: 8px;
       margin-bottom: 22px;
-      padding: 8px 12px;
+      padding: 8px 14px;
       color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      backdrop-filter: blur(14px) saturate(150%);
       font-size: 0.76rem;
       font-weight: 900;
       letter-spacing: 1px;
@@ -221,7 +293,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent-gold));
+      box-shadow: 0 0 14px rgba(239, 71, 111, 0.75);
     }
 
     .hero h1 {
@@ -234,9 +307,11 @@
     }
 
     .hero h1 em {
-      color: var(--gray-light);
+      color: transparent;
+      background: linear-gradient(100deg, #fff 10%, #ffd9df 48%, #f0c66f 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
       font-style: normal;
-      text-shadow: 3px 3px 0 var(--accent);
     }
 
     .hero-description {
@@ -250,6 +325,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 13px;
+      margin-top: 30px;
     }
 
     .button {
@@ -258,30 +334,33 @@
       justify-content: center;
       min-height: 48px;
       padding: 0 22px;
-      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
       font-weight: 900;
       transition: 0.25s ease;
     }
 
     .button-white {
-      color: var(--black);
-      background: var(--white);
+      color: #fff;
+      background: linear-gradient(120deg, var(--accent-bright), var(--accent) 60%, #87172e);
+      box-shadow: 0 8px 24px rgba(181, 31, 59, 0.24);
     }
 
     .button-white:hover {
-      color: var(--white);
-      background: var(--accent);
+      background: linear-gradient(120deg, #f06483, #a51d1d 65%, #76172b);
       transform: translateY(-2px);
     }
 
     .button-outline {
       color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.09);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      backdrop-filter: blur(14px) saturate(150%);
     }
 
     .button-outline:hover {
       border-color: var(--white);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.16);
     }
 
     section {
@@ -309,13 +388,14 @@
     .section-label::before {
       width: 24px;
       height: 3px;
-      background: var(--accent);
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent-bright), var(--accent-gold));
       content: "";
     }
 
     .section-heading h2 {
       margin-bottom: 13px;
-      color: var(--black);
+      color: var(--text-color);
       font-size: clamp(2.3rem, 5vw, 4rem);
       line-height: 1;
       letter-spacing: -3px;
@@ -323,12 +403,14 @@
     }
 
     .section-heading p {
-      color: var(--gray);
+      color: var(--muted-color);
     }
 
     .upcoming,
     .links-section {
-      background: var(--white);
+      background:
+        radial-gradient(ellipse at 8% 0%, rgba(239, 71, 111, 0.07), transparent 36%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(246, 247, 252, 0.92));
     }
 
     .matches-grid {
@@ -337,13 +419,22 @@
       gap: 20px;
     }
 
+    .match-card,
+    .player-card,
+    .history-table-wrap,
+    .links-card,
+    .potm-card {
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      background: var(--glass);
+      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+      backdrop-filter: blur(18px) saturate(150%);
+    }
+
     .match-card {
       position: relative;
       padding: 25px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
       transition: 0.25s ease;
     }
 
@@ -352,15 +443,15 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 4px;
-      border-radius: 8px 8px 0 0;
-      background: var(--black);
+      height: 5px;
+      border-radius: 18px 18px 0 0;
+      background: linear-gradient(90deg, var(--accent-bright), var(--accent-gold), var(--accent-blue));
       content: "";
     }
 
     .match-card:hover {
-      border-color: var(--black);
-      box-shadow: var(--shadow);
+      border-color: rgba(181, 31, 59, 0.28);
+      box-shadow: 0 24px 55px rgba(40, 28, 65, 0.19);
       transform: translateY(-6px);
     }
 
@@ -369,7 +460,7 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 22px;
-      color: var(--gray);
+      color: var(--muted-color);
       font-size: 0.76rem;
       font-weight: 900;
       text-transform: uppercase;
@@ -394,10 +485,30 @@
       height: 55px;
       margin: 0 auto 8px;
       color: var(--white);
-      border: 3px solid var(--black);
+      border: 3px solid rgba(255, 255, 255, 0.8);
       border-radius: 50%;
-      background: var(--black);
+      background: linear-gradient(145deg, #29283a, #11111b 62%, #502033);
+      box-shadow: 0 8px 18px rgba(25, 20, 45, 0.22);
       font-weight: 900;
+    }
+
+    .crest-badge {
+      position: relative;
+      overflow: hidden;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .crest-badge img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 115%;
+      height: 115%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
     }
 
     .match-team-name {
@@ -414,26 +525,51 @@
       margin-top: 22px;
       padding-top: 17px;
       border-top: 1px solid var(--border);
-      color: var(--gray);
+      color: var(--muted-color);
       text-align: center;
       font-size: 0.8rem;
     }
 
     .history {
-      background: var(--gray-pale);
+      background:
+        radial-gradient(ellipse at 90% 20%, rgba(105, 120, 237, 0.09), transparent 34%),
+        linear-gradient(145deg, #f1f2f9, #faf7f8);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .filter-btn {
+      padding: 10px 16px;
+      color: var(--text-color);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--glass);
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(120deg, var(--accent-bright), var(--accent));
     }
 
     .history-table-wrap {
       overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: var(--shadow);
     }
 
     .history-table {
       width: 100%;
-      min-width: 650px;
+      min-width: 760px;
       border-collapse: collapse;
     }
 
@@ -445,8 +581,8 @@
     }
 
     .history-table th {
-      color: var(--gray);
-      background: #fafafa;
+      color: var(--muted-color);
+      background: var(--table-head-bg);
       font-size: 0.76rem;
       letter-spacing: 0.8px;
       text-transform: uppercase;
@@ -469,20 +605,69 @@
     }
 
     .win {
-      background: #3d9862;
+      background: linear-gradient(135deg, #61c88a, #258356);
     }
 
     .draw {
-      color: var(--black);
-      background: #e2ad35;
+      color: #33220a;
+      background: linear-gradient(135deg, #f4d16e, var(--accent-gold));
     }
 
     .loss {
-      background: #c74343;
+      background: linear-gradient(135deg, #f07878, #bd3346);
+    }
+
+    .potm-section {
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(232, 180, 74, 0.12), transparent 35%),
+        linear-gradient(145deg, #f7f4f7, #eef1fa);
+    }
+
+    .potm-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      align-items: center;
+      gap: 25px;
+      max-width: 760px;
+      margin: auto;
+      padding: 25px;
+    }
+
+    .potm-photo {
+      width: 180px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #333044, #15151f);
+    }
+
+    .potm-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .potm-label {
+      color: var(--accent-gold);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .potm-card h3 {
+      margin: 5px 0 8px;
+      font-size: 1.7rem;
+    }
+
+    .potm-card p {
+      color: var(--muted-color);
     }
 
     .team {
-      background: var(--white);
+      background:
+        radial-gradient(ellipse at 10% 80%, rgba(239, 71, 111, 0.07), transparent 35%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(244, 245, 252, 0.92));
     }
 
     .players-grid {
@@ -493,33 +678,63 @@
 
     .player-card {
       overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--white);
       transition: 0.25s ease;
     }
 
     .player-card:hover {
-      border-color: var(--black);
-      box-shadow: var(--shadow);
+      border-color: rgba(181, 31, 59, 0.28);
+      box-shadow: 0 24px 55px rgba(40, 28, 65, 0.19);
       transform: translateY(-6px);
     }
 
     .player-image {
+      position: relative;
       display: grid;
       place-items: center;
-      height: 170px;
+      height: 210px;
       color: var(--white);
       background:
-        radial-gradient(
-          circle at center,
-          transparent 0 30%,
-          rgba(255, 255, 255, 0.1) 31% 32%,
-          transparent 33%
-        ),
-        linear-gradient(135deg, #3e3e3e, #101010);
+        radial-gradient(circle at 75% 20%, rgba(105, 120, 237, 0.45), transparent 34%),
+        radial-gradient(circle at 20% 90%, rgba(239, 71, 111, 0.42), transparent 38%),
+        linear-gradient(135deg, #333044, #15151f 72%);
       font-size: 3.2rem;
       font-weight: 900;
+    }
+
+    .player-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .status-available {
+      background: linear-gradient(135deg, #61c88a, #258356);
+    }
+
+    .status-injured {
+      background: linear-gradient(135deg, #f07878, #bd3346);
+    }
+
+    .status-suspended {
+      background: linear-gradient(135deg, #f4d16e, #b78118);
+      color: #33220a;
     }
 
     .player-info {
@@ -538,222 +753,62 @@
     }
 
     .player-position {
-      color: var(--gray);
+      color: var(--muted-color);
       font-size: 0.84rem;
     }
 
-    .pitch-positioning {
-      margin-top: 70px;
-    }
-
-    .pitch-heading {
-      margin-bottom: 28px;
-      text-align: center;
-    }
-
-    .pitch-heading h3 {
-      margin: 4px 0 6px;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-    }
-
-    .pitch-heading p {
-      color: var(--gray);
-    }
-
-    .football-pitch {
-      position: relative;
-      width: min(100%, 760px);
-      height: 620px;
-      margin: auto;
-      overflow: hidden;
-      border: 4px solid var(--white);
-      border-radius: 12px;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.045) 50%,
-          transparent 50%
-        ),
-        #3d9862;
-      box-shadow: var(--shadow);
-    }
-
-    .football-pitch::before,
-    .football-pitch::after {
-      position: absolute;
-      left: 50%;
-      content: "";
-      transform: translateX(-50%);
-    }
-
-    .football-pitch::before {
-      top: 0;
-      width: 2px;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .football-pitch::after {
-      top: 50%;
-      width: 108px;
-      height: 108px;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .pitch-line {
-      position: absolute;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .halfway-line {
-      top: 50%;
-      left: 0;
+    .profile-button {
       width: 100%;
-      height: 2px;
-      transform: translateY(-50%);
-    }
-
-    .pitch-circle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 1;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--white);
-      transform: translate(-50%, -50%);
-    }
-
-    .penalty-area {
-      position: absolute;
-      left: 50%;
-      z-index: 1;
-      width: 260px;
-      height: 105px;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      transform: translateX(-50%);
-    }
-
-    .penalty-top {
-      top: 0;
-      border-top: 0;
-    }
-
-    .penalty-bottom {
-      bottom: 0;
-      border-bottom: 0;
-    }
-
-    .goal-area {
-      position: absolute;
-      left: 50%;
-      z-index: 1;
-      width: 110px;
-      height: 45px;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      transform: translateX(-50%);
-    }
-
-    .goal-top {
-      top: 0;
-      border-top: 0;
-    }
-
-    .goal-bottom {
-      bottom: 0;
-      border-bottom: 0;
-    }
-
-    .pitch-player {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap: 5px;
-      width: 100px;
-      color: var(--white);
-      text-align: center;
-      font-size: 0.72rem;
-      transform: translate(-50%, -50%);
-    }
-
-    .pitch-player strong {
-      padding: 3px 6px;
-      border-radius: 4px;
-      background: rgba(17, 17, 17, 0.8);
-      font-size: 0.72rem;
-      white-space: nowrap;
-    }
-
-    .position-badge {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      color: var(--black);
-      border: 3px solid var(--white);
-      border-radius: 50%;
-      background: var(--white);
-      font-size: 0.65rem;
+      margin-top: 14px;
+      padding: 10px;
+      color: var(--text-color);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.8rem;
       font-weight: 900;
+      transition: 0.2s ease;
     }
 
-    .goalkeeper {
-      bottom: 7%;
-      left: 50%;
+    .profile-button:hover {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(120deg, var(--accent-bright), var(--accent));
     }
 
-    .defender-left {
-      bottom: 23%;
-      left: 25%;
+    .player-profile {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-color);
+      font-size: 0.86rem;
     }
 
-    .defender-center {
-      bottom: 19%;
-      left: 50%;
+    .player-profile.open {
+      display: block;
     }
 
-    .defender-right {
-      bottom: 23%;
-      left: 75%;
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
-    .midfielder-left {
-      bottom: 39%;
-      left: 25%;
+    .profile-stats div {
+      padding: 8px 4px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
     }
 
-    .midfielder-center {
-      bottom: 35%;
-      left: 50%;
-    }
-
-    .midfielder-right {
-      bottom: 39%;
-      left: 75%;
-    }
-
-    .forward-left {
-      top: 24%;
-      left: 35%;
-    }
-
-    .forward-center {
-      top: 17%;
-      left: 50%;
-    }
-
-    .winger-right {
-      top: 24%;
-      left: 66%;
+    .profile-stats strong {
+      display: block;
+      color: var(--text-color);
+      font-size: 1rem;
     }
 
     .links-card {
@@ -761,16 +816,12 @@
       align-items: center;
       gap: 24px;
       padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--gray-pale);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
       transition: 0.25s ease;
     }
 
     .links-card:hover {
-      border-color: var(--black);
-      box-shadow: var(--shadow);
+      border-color: rgba(181, 31, 59, 0.28);
+      box-shadow: 0 24px 55px rgba(40, 28, 65, 0.19);
       transform: translateY(-6px);
     }
 
@@ -801,25 +852,27 @@
     }
 
     .link-content p {
-      color: var(--gray);
+      color: var(--muted-color);
       font-size: 0.9rem;
     }
 
     .link-button {
-      color: var(--white);
-      background: var(--black);
+      color: #fff;
+      border: 0;
+      background: linear-gradient(120deg, #25243a, #12121d);
     }
 
     .link-button:hover {
-      color: var(--white);
-      background: var(--accent);
+      background: linear-gradient(120deg, #f06483, #a51d1d 65%, #76172b);
       transform: translateY(-2px);
     }
 
     footer {
       padding: 28px 0;
       color: #bdbdbd;
-      background: #080808;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(105, 120, 237, 0.18), transparent 40%),
+        linear-gradient(120deg, #0b0b12, #191321 65%, #24131d);
     }
 
     .footer-content {
@@ -827,6 +880,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .footer-links {
@@ -872,8 +931,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .click-sparkle {
+      .click-sparkle,
+      .live-dot {
         display: none;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
       }
     }
 
@@ -896,8 +964,11 @@
         align-items: stretch;
         gap: 0;
         padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 8px;
-        background: var(--black-soft);
+        background: rgba(27, 27, 40, 0.94);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
       }
 
       .nav-links a {
@@ -910,6 +981,15 @@
 
       .players-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .potm-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .potm-photo {
+        margin: auto;
       }
     }
 
@@ -945,39 +1025,6 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .football-pitch {
-        height: 540px;
-      }
-
-      .pitch-player {
-        width: 78px;
-      }
-
-      .pitch-player strong {
-        max-width: 88px;
-        overflow: hidden;
-        font-size: 0.62rem;
-        text-overflow: ellipsis;
-      }
-
-      .position-badge {
-        width: 36px;
-        height: 36px;
-        font-size: 0.56rem;
-      }
-
-      .penalty-area {
-        width: 190px;
-        height: 85px;
-      }
-
-      .goal-area {
-        width: 85px;
-        height: 35px;
-      }
-    }
-
     @media (max-width: 480px) {
       .hero h1 {
         font-size: 3.35rem;
@@ -1004,7 +1051,11 @@
   <header class="navbar">
     <div class="container nav-content">
       <a href="#home" class="logo">
-        <span class="logo-mark">E</span>
+        <img
+          class="club-crest-image"
+          src="elite fc.png"
+          alt="Elite FC club crest"
+        />
         Elite FC
       </a>
 
@@ -1020,18 +1071,38 @@
 
       <nav class="nav-links">
         <a href="#home">Home</a>
-        <a href="#upcoming">Upcoming Matches</a>
-        <a href="#history">Match History</a>
-        <a href="#team">Meet the Team</a>
+        <a href="#upcoming">Matches</a>
+        <a href="#history">History</a>
+        <a href="#potm">POTM</a>
+        <a href="#team">Team</a>
         <a href="#links">Links</a>
       </nav>
 
-      <!-- Changed from href="#upcoming" to href="#links" -->
-      <a href="#links" class="nav-button">
-        Follow us on Insta!
-      </a>
+      <div class="nav-actions">
+        <a href="#links" class="nav-button">
+          Follow us on Insta!
+        </a>
+      </div>
     </div>
   </header>
+
+  <div class="live-banner" id="liveBanner">
+    <div class="container live-banner-content">
+      <span class="live-pill">
+        <span class="live-dot"></span>
+        Matchday on Saturday!
+      </span>
+
+      <span class="banner-team elite-team">Elite FC</span>
+      <span>vs</span>
+      <span class="banner-team">Falcons FC</span>
+
+      <span>·</span>
+      <span>Kickoff: 05:30</span>
+      <span>·</span>
+      <span>Venue: --- Pitch</span>
+    </div>
+  </div>
 
   <main>
     <section class="hero" id="home">
@@ -1053,7 +1124,6 @@
           </p>
 
           <div class="hero-buttons">
-            <!-- Changed from href="#upcoming" to href="#links" -->
             <a href="#links" class="button button-white">Links</a>
             <a href="#team" class="button button-outline">
               Meet the Team
@@ -1075,50 +1145,62 @@
           <article class="match-card">
             <div class="match-card-top">
               <span class="competition">Friendly Match</span>
-              <span>-- ---</span>
+              <span>31 Oct 2026</span>
             </div>
 
             <div class="match-teams">
               <div>
-                <div class="small-badge">E</div>
+                <div class="small-badge crest-badge">
+                  <img
+                    src="elite fc.png"
+                    alt="Elite FC crest"
+                  />
+                </div>
+
                 <div class="match-team-name">Elite FC</div>
               </div>
 
               <div class="match-vs">VS</div>
 
               <div>
-                <div class="small-badge">-</div>
-                <div class="match-team-name">--- FC</div>
+                <div class="small-badge">F</div>
+                <div class="match-team-name">Falcons FC</div>
               </div>
             </div>
 
             <div class="match-card-bottom">
-              --- Pitch · 00:00
+              --- Pitch · 05:30
             </div>
           </article>
 
           <article class="match-card">
             <div class="match-card-top">
               <span class="competition">Friendly Match</span>
-              <span>20 Aug 2026</span>
+              <span>-- Nov 2026</span>
             </div>
 
             <div class="match-teams">
               <div>
-                <div class="small-badge">E</div>
+                <div class="small-badge crest-badge">
+                  <img
+                    src="elite fc.png"
+                    alt="Elite FC crest"
+                  />
+                </div>
+
                 <div class="match-team-name">Elite FC</div>
               </div>
 
               <div class="match-vs">VS</div>
 
               <div>
-                <div class="small-badge">M</div>
-                <div class="match-team-name">Musiness FC</div>
+                <div class="small-badge">A</div>
+                <div class="match-team-name">Alpha FC</div>
               </div>
             </div>
 
             <div class="match-card-bottom">
-              Glory/not fixed Pitch · --:00
+              -- Pitch · --:00
             </div>
           </article>
 
@@ -1130,7 +1212,13 @@
 
             <div class="match-teams">
               <div>
-                <div class="small-badge">E</div>
+                <div class="small-badge crest-badge">
+                  <img
+                    src="elite fc.png"
+                    alt="Elite FC crest"
+                  />
+                </div>
+
                 <div class="match-team-name">Elite FC</div>
               </div>
 
@@ -1155,7 +1243,15 @@
         <div class="section-heading">
           <span class="section-label">Match History</span>
           <h2>Match results</h2>
-          <p>The Matches.</p>
+          <p>Filter Elite FC’s previous matches.</p>
+        </div>
+
+        <div class="filter-bar" id="historyFilters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="win">Wins</button>
+          <button class="filter-btn" data-filter="draw">Draws</button>
+          <button class="filter-btn" data-filter="loss">Losses</button>
+          <button class="filter-btn" data-filter="friendly">Friendly</button>
         </div>
 
         <div class="history-table-wrap">
@@ -1170,33 +1266,37 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>8/13/2026</td>
+            <tbody id="historyRows">
+              <tr
+                data-result="draw"
+                data-competition="friendly"
+                data-opponent="falcons"
+              >
+                <td>22/10/2026</td>
                 <td>Friendly Match</td>
-                <td>FootyLads FC</td>
-                <td>3 - 1</td>
-                <td><span class="result loss">L</span></td>
+                <td>Falcons FC</td>
+                <td>3 - 3</td>
+                <td><span class="result draw">D</span></td>
               </tr>
 
-              <tr>
+              <tr
+                data-result="loss"
+                data-competition="friendly"
+                data-opponent="hydra"
+              >
                 <td>---</td>
-                <td>One sided match [5v7]</td>
+                <td>[5v7]</td>
                 <td>Hydra FC</td>
-                <td>4 - 8</td>
-                <td><span class="result win">?</span></td>
-              </tr>
-
-              <tr>
-                <td>---</td>
-                <td>Friendly Match</td>
-                <td>FootyLads FC</td>
-                <td>9 - 6</td>
+                <td>6 - 8</td>
                 <td><span class="result loss">L</span></td>
               </tr>
 
-              <tr>
-                <td>---</td>
+              <tr
+                data-result="draw"
+                data-competition="friendly"
+                data-opponent="footylads"
+              >
+                <td>2025</td>
                 <td>Friendly Match</td>
                 <td>Footylads FC</td>
                 <td>5 - 5</td>
@@ -1208,193 +1308,468 @@
       </div>
     </section>
 
+    <section class="potm-section" id="potm">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Latest Match</span>
+          <h2>Player of the match</h2>
+          <p>Recognising Elite FC’s standout performer.</p>
+        </div>
+
+        <article class="potm-card">
+          <div class="potm-photo">
+            <img
+              src="images/murtaza.jpg"
+              alt="Murtaza R., Elite FC Player of the Match"
+              onerror="this.style.display='none'"
+            />
+          </div>
+
+          <div>
+            <span class="potm-label">Player of the Match</span>
+            <h3>Murtaza R.</h3>
+            <p>
+              Outstanding performance against Falcons FC. Murtaza created
+              chances, pressed relentlessly, and scored a crucial goal in
+              Elite FC’s 3-3 draw.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="team" id="team">
       <div class="container">
         <div class="section-heading">
           <span class="section-label">Meet the Team</span>
           <h2>Our Starting/Sub Players</h2>
-          <p>The players.</p>
+          <p>Tap a player to view their profile.</p>
         </div>
 
         <div class="players-grid">
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/mustafa.jpg"
+                alt="Mustafa R., Elite FC goalkeeper"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Goalkeeper</span>
+              <span class="player-number">#1 · Goalkeeper</span>
               <h3>Mustafa R.</h3>
               <span class="player-position">GK</span>
+
+              <button class="profile-button" data-profile="mustafa">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-mustafa">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Clean sheets</div>
+                  <div><strong>0</strong>Saves</div>
+                </div>
+
+                <p>
+                  Mustafa is Elite FC’s first-choice goalkeeper. Calm with the
+                  ball and strong in one-on-one situations.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/emaaz.jpg"
+                alt="Emaaz B., Elite FC defender"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Defender</span>
+              <span class="player-number">#2 · Defender</span>
               <h3>Emaaz B.</h3>
               <span class="player-position">DEF</span>
+
+              <button class="profile-button" data-profile="emaaz">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-emaaz">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Emaaz brings energy and defensive awareness to the back line.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/younus.jpg"
+                alt="Younus, Elite FC defender"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Defender</span>
+              <span class="player-number">#3 · Defender</span>
               <h3>Younus</h3>
               <span class="player-position">DEF</span>
+
+              <button class="profile-button" data-profile="younus">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-younus">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Younus is a reliable defender who helps build play from the back.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/hassan.jpg"
+                alt="Hassan Z., Elite FC defender"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-injured">Injured</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Defender</span>
+              <span class="player-number">#4 · Defender</span>
               <h3>Hassan Z.</h3>
               <span class="player-position">DEF</span>
+
+              <button class="profile-button" data-profile="hassan">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-hassan">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Hassan is currently recovering and working towards a return
+                  to full training.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/azan.jpg"
+                alt="Azan B., Elite FC centre-back"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Defender</span>
+              <span class="player-number">#5 · Defender</span>
               <h3>Azan B.</h3>
               <span class="player-position">CB</span>
+
+              <button class="profile-button" data-profile="azan">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-azan">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Azan is a strong centre-back who wins duels and organises the defence.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/taha.jpg"
+                alt="Taha I., Elite FC midfielder"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Midfielder</span>
+              <span class="player-number">#6 · Midfielder</span>
               <h3>Taha I.</h3>
               <span class="player-position">Not fixed</span>
+
+              <button class="profile-button" data-profile="taha">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-taha">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Taha is a flexible midfielder who can play in several roles.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/faizan.jpg"
+                alt="Faizan M., Elite FC captain"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Midfielder</span>
+              <span class="player-number">#7 · Midfielder</span>
               <h3>Faizan M. (C)</h3>
               <span class="player-position">Captain</span>
+
+              <button class="profile-button" data-profile="faizan">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-faizan">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Faizan is Elite FC’s captain and a key leader in midfield.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/huzaifa.jpg"
+                alt="Huzaifa I., Elite FC winger"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Midfielder</span>
+              <span class="player-number">#8 · Midfielder</span>
               <h3>Huzaifa I.</h3>
               <span class="player-position">Not fixed</span>
+
+              <button class="profile-button" data-profile="huzaifa">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-huzaifa">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Huzaifa adds width, pace, and attacking threat from the right.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/murtaza.jpg"
+                alt="Murtaza R., Elite FC striker"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Forward</span>
+              <span class="player-number">#9 · Forward</span>
               <h3>Murtaza R.</h3>
               <span class="player-position">Striker</span>
+
+              <button class="profile-button" data-profile="murtaza">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-murtaza">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Murtaza is Elite FC’s main striker and a constant goal threat.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/ahmad.jpg"
+                alt="Ahmad Z., Elite FC attacking midfielder"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-suspended">Suspended</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Forward</span>
+              <span class="player-number">#10 · Forward</span>
               <h3>Ahmad Z.</h3>
               <span class="player-position">Attacking Midfielder</span>
+
+              <button class="profile-button" data-profile="ahmad">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-ahmad">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Ahmad is a creative attacking midfielder who links play
+                  between midfield and attack.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/abdullah.jpg"
+                alt="Abdullah R., Elite FC goalkeeper"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Goalkeeper</span>
+              <span class="player-number">#12 · Goalkeeper</span>
               <h3>Abdullah R.</h3>
               <span class="player-position">GK</span>
+
+              <button class="profile-button" data-profile="abdullah">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-abdullah">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Clean sheets</div>
+                  <div><strong>0</strong>Saves</div>
+                </div>
+
+                <p>
+                  Abdullah provides depth and competition in the goalkeeper position.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="player-card">
-            <div class="player-image">?</div>
+            <div class="player-image">
+              <img
+                src="images/saad.jpg"
+                alt="Saad Z., Elite FC defender"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
             <div class="player-info">
-              <span class="player-number">? · Defender [Learning]</span>
+              <span class="player-number">#14 · Defender</span>
               <h3>Saad Z.</h3>
               <span class="player-position">Learning</span>
+
+              <button class="profile-button" data-profile="saad">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-saad">
+                <div class="profile-stats">
+                  <div><strong>0</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
+                </div>
+
+                <p>
+                  Saad is developing as a defender and continues to improve
+                  with every session.
+                </p>
+              </div>
             </div>
           </article>
-        </div>
-
-        <div class="pitch-positioning">
-          <div class="pitch-heading">
-            <span class="section-label">Tactical Setup</span>
-            <h3>Pitch Positioning</h3>
-            <p>Our current formation.</p>
-          </div>
-
-          <div
-            class="football-pitch"
-            aria-label="Elite FC pitch positioning"
-          >
-            <div class="pitch-line halfway-line"></div>
-            <div class="pitch-circle"></div>
-
-            <div class="penalty-area penalty-top"></div>
-            <div class="goal-area goal-top"></div>
-            <div class="penalty-area penalty-bottom"></div>
-            <div class="goal-area goal-bottom"></div>
-
-            <div class="pitch-player goalkeeper">
-              <span class="position-badge">GK</span>
-              <strong>Mustafa R.</strong>
-            </div>
-
-            <div class="pitch-player defender defender-left">
-              <span class="position-badge">DEF</span>
-              <strong>Emaaz B.</strong>
-            </div>
-
-            <div class="pitch-player defender defender-center">
-              <span class="position-badge">DEF</span>
-              <strong>Younus</strong>
-            </div>
-
-            <div class="pitch-player defender defender-right">
-              <span class="position-badge">DEF</span>
-              <strong>Hassan Z./Saad Z.</strong>
-            </div>
-
-            <div class="pitch-player midfielder midfielder-left">
-              <span class="position-badge">MID</span>
-              <strong>Azan B.</strong>
-            </div>
-
-            <div class="pitch-player midfielder midfielder-center">
-              <span class="position-badge">CDM</span>
-              <strong>Faizan M.</strong>
-            </div>
-
-            <div class="pitch-player midfielder midfielder-right">
-              <span class="position-badge">MID</span>
-              <strong>Taha I.</strong>
-            </div>
-
-            <div class="pitch-player forward forward-left">
-              <span class="position-badge">LW</span>
-              <strong>Ahmad Z.</strong>
-            </div>
-
-            <div class="pitch-player forward forward-center">
-              <span class="position-badge">ST</span>
-              <strong>Murtaza R.</strong>
-            </div>
-
-            <div class="pitch-player winger winger-right">
-              <span class="position-badge">RW</span>
-              <strong>Huzaifa I.</strong>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -1435,25 +1810,80 @@
 
   <footer>
     <div class="container footer-content">
-      <p>© 2026 Elite FC. All rights reserved.</p>
+      <div class="footer-brand">
+        <img
+          class="club-crest-image"
+          src="elite fc.png"
+          alt="Elite FC club crest"
+        />
+
+        <p>© 2026 Elite FC. All rights reserved.</p>
+      </div>
 
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#upcoming">Matches</a>
         <a href="#history">History</a>
-        <a href="#team">Meet the Team</a>
+        <a href="#potm">POTM</a>
+        <a href="#team">Team</a>
         <a href="#links">Links</a>
       </div>
     </div>
   </footer>
 
- <script>
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const historyRows = document.querySelectorAll("#historyRows tr");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        historyRows.forEach((row) => {
+          const matches =
+            filter === "all" ||
+            row.dataset.result === filter ||
+            row.dataset.competition === filter ||
+            row.dataset.opponent === filter;
+
+          row.style.display = matches ? "" : "none";
+        });
+      });
+    });
+
+    document.querySelectorAll(".profile-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const profile = document.getElementById(
+          `profile-${button.dataset.profile}`
+        );
+
+        const isOpen = profile.classList.contains("open");
+
+        document.querySelectorAll(".player-profile").forEach((item) => {
+          item.classList.remove("open");
+        });
+
+        document.querySelectorAll(".profile-button").forEach((item) => {
+          item.textContent = "View profile";
+        });
+
+        if (!isOpen) {
+          profile.classList.add("open");
+          button.textContent = "Hide profile";
+        }
+      });
+    });
+
     document.addEventListener("click", function (event) {
       const colors = [
         "#ffffff",
         "#eeeeee",
-        "#a51d1d",
-        "#d9a832"
+        "#ef476f",
+        "#e8b44a",
+        "#6978ed"
       ];
 
       for (let i = 0; i < 7; i++) {
