@@ -1044,6 +1044,48 @@
         flex-wrap: wrap;
       }
     }
+ /* Football cursor on devices with a mouse */
+@media (hover: hover) and (pointer: fine) {
+  html.football-cursor,
+  html.football-cursor * {
+    cursor: none !important;
+  }
+}
+
+.football-pointer,
+.football-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+.football-pointer {
+  z-index: 10001;
+  font-size: 25px;
+}
+
+.football-trail {
+  z-index: 10000;
+  font-size: 25px;
+  filter: blur(1px);
+}   
+.falcons-badge {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.falcons-badge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
   </style>
 </head>
 
@@ -1086,24 +1128,7 @@
     </div>
   </header>
 
-  <div class="live-banner" id="liveBanner">
-    <div class="container live-banner-content">
-      <span class="live-pill">
-        <span class="live-dot"></span>
-        Matchday on Saturday!
-      </span>
-
-      <span class="banner-team elite-team">Elite FC</span>
-      <span>vs</span>
-      <span class="banner-team">Falcons FC</span>
-
-      <span>·</span>
-      <span>Kickoff: 05:30</span>
-      <span>·</span>
-      <span>Venue: --- Pitch</span>
-    </div>
-  </div>
-
+ 
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
@@ -1161,15 +1186,18 @@
               </div>
 
               <div class="match-vs">VS</div>
-
+<div>
+  <div class="small-badge falcons-badge">
+    <img src="https://elitefckhobar.github.io/ftbl/falcon-fc.jpeg" alt="Falcons FC crest">
+  </div>
+  <div class="match-team-name">Falcons FC</div>
+</div>
               <div>
-                <div class="small-badge">F</div>
-                <div class="match-team-name">Falcons FC</div>
-              </div>
+             
             </div>
 
             <div class="match-card-bottom">
-              --- Pitch · 05:30
+              Al Munafasah, Al Manar Pitch · 06:30
             </div>
           </article>
 
@@ -1320,17 +1348,17 @@
           <div class="potm-photo">
             <img
               src="images/murtaza.jpg"
-              alt="Murtaza R., Elite FC Player of the Match"
+              alt="Massab A. Khan, Player of the Match"
               onerror="this.style.display='none'"
             />
           </div>
 
           <div>
             <span class="potm-label">Player of the Match</span>
-            <h3>Murtaza R.</h3>
+            <h3>Massab A. Khan</h3>
             <p>
-              Outstanding performance against Falcons FC. Murtaza created
-              chances, pressed relentlessly, and scored a crucial goal in
+              Outstanding performance against Falcons FC. Massab created
+              chances, pressed relentlessly, and scored a hattrick in
               Elite FC’s 3-3 draw.
             </p>
           </div>
@@ -1350,8 +1378,8 @@
           <article class="player-card">
             <div class="player-image">
               <img
-                src="images/mustafa.jpg"
-                alt="Mustafa R., Elite FC goalkeeper"
+                src="images/Abdullah.jpg"
+                alt="Abdullah Rao, Elite FC goalkeeper"
                 onerror="this.style.display='none'"
               />
 
@@ -1361,22 +1389,22 @@
 
             <div class="player-info">
               <span class="player-number">#1 · Goalkeeper</span>
-              <h3>Mustafa R.</h3>
+              <h3>Abdullah Rao</h3>
               <span class="player-position">GK</span>
 
-              <button class="profile-button" data-profile="mustafa">
+              <button class="profile-button" data-profile="Abdullah">
                 View profile
               </button>
 
-              <div class="player-profile" id="profile-mustafa">
+              <div class="player-profile" id="profile-Abdullah">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>1</strong>Apps</div>
                   <div><strong>0</strong>Clean sheets</div>
-                  <div><strong>0</strong>Saves</div>
+                  <div><strong>6</strong>Saves</div>
                 </div>
 
                 <p>
-                  Mustafa is Elite FC’s first-choice goalkeeper. Calm with the
+                  Abdullah is Elite FC’s first-choice goalkeeper. Calm with the
                   ball and strong in one-on-one situations.
                 </p>
               </div>
@@ -1406,7 +1434,7 @@
 
               <div class="player-profile" id="profile-emaaz">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>3</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
@@ -1441,7 +1469,7 @@
 
               <div class="player-profile" id="profile-younus">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>2</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
@@ -1461,7 +1489,7 @@
                 onerror="this.style.display='none'"
               />
 
-              <span class="status-badge status-injured">Injured</span>
+              <span class="status-badge status-available">Available</span>
               ?
             </div>
 
@@ -1476,7 +1504,7 @@
 
               <div class="player-profile" id="profile-hassan">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>2</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
@@ -1493,7 +1521,7 @@
             <div class="player-image">
               <img
                 src="images/azan.jpg"
-                alt="Azan B., Elite FC centre-back"
+                alt="Azan B., Elite FC Midfielder"
                 onerror="this.style.display='none'"
               />
 
@@ -1502,9 +1530,9 @@
             </div>
 
             <div class="player-info">
-              <span class="player-number">#5 · Defender</span>
+              <span class="player-number">#5 · Midfielder</span>
               <h3>Azan B.</h3>
-              <span class="player-position">CB</span>
+              <span class="player-position">CAM</span>
 
               <button class="profile-button" data-profile="azan">
                 View profile
@@ -1512,13 +1540,13 @@
 
               <div class="player-profile" id="profile-azan">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
-                  <div><strong>0</strong>Goals</div>
-                  <div><strong>0</strong>Assists</div>
+                  <div><strong>2</strong>Apps</div>
+                  <div><strong>1</strong>Goals</div>
+                  <div><strong>1</strong>Assists</div>
                 </div>
 
                 <p>
-                  Azan is a strong centre-back who wins duels and organises the defence.
+                  Azan is a Midfielder who wins duels.
                 </p>
               </div>
             </div>
@@ -1528,7 +1556,7 @@
             <div class="player-image">
               <img
                 src="images/taha.jpg"
-                alt="Taha I., Elite FC midfielder"
+                alt="Taha I., Elite FC Striker"
                 onerror="this.style.display='none'"
               />
 
@@ -1537,9 +1565,9 @@
             </div>
 
             <div class="player-info">
-              <span class="player-number">#6 · Midfielder</span>
+              <span class="player-number">#6 · Striker</span>
               <h3>Taha I.</h3>
-              <span class="player-position">Not fixed</span>
+              <span class="player-position">Forward</span>
 
               <button class="profile-button" data-profile="taha">
                 View profile
@@ -1547,9 +1575,9 @@
 
               <div class="player-profile" id="profile-taha">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
-                  <div><strong>0</strong>Goals</div>
-                  <div><strong>0</strong>Assists</div>
+                  <div><strong>2</strong>Apps</div>
+                  <div><strong>1</strong>Goals</div>
+                  <div><strong>1</strong>Assists</div>
                 </div>
 
                 <p>
@@ -1582,7 +1610,7 @@
 
               <div class="player-profile" id="profile-faizan">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>2</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
@@ -1597,8 +1625,8 @@
           <article class="player-card">
             <div class="player-image">
               <img
-                src="images/huzaifa.jpg"
-                alt="Huzaifa I., Elite FC winger"
+                src="images/Mishal.jpg"
+                alt="Mishal, Elite FC Midfielder"
                 onerror="this.style.display='none'"
               />
 
@@ -1608,22 +1636,22 @@
 
             <div class="player-info">
               <span class="player-number">#8 · Midfielder</span>
-              <h3>Huzaifa I.</h3>
+              <h3>Mishal.</h3>
               <span class="player-position">Not fixed</span>
 
-              <button class="profile-button" data-profile="huzaifa">
+              <button class="profile-button" data-profile="Mishal">
                 View profile
               </button>
 
-              <div class="player-profile" id="profile-huzaifa">
+              <div class="player-profile" id="profile-Mishal">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>1</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
 
                 <p>
-                  Huzaifa adds width, pace, and attacking threat from the right.
+                  Mishal adds width, pace, and attacking threat from the right.
                 </p>
               </div>
             </div>
@@ -1632,8 +1660,8 @@
           <article class="player-card">
             <div class="player-image">
               <img
-                src="images/murtaza.jpg"
-                alt="Murtaza R., Elite FC striker"
+                src="images/Massab.jpg"
+                alt="Massab, Elite FC striker"
                 onerror="this.style.display='none'"
               />
 
@@ -1643,22 +1671,22 @@
 
             <div class="player-info">
               <span class="player-number">#9 · Forward</span>
-              <h3>Murtaza R.</h3>
+              <h3>Massab</h3>
               <span class="player-position">Striker</span>
 
-              <button class="profile-button" data-profile="murtaza">
+              <button class="profile-button" data-profile="Massab">
                 View profile
               </button>
 
-              <div class="player-profile" id="profile-murtaza">
+              <div class="player-profile" id="profile-Massab">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
-                  <div><strong>0</strong>Goals</div>
-                  <div><strong>0</strong>Assists</div>
+                  <div><strong>2</strong>Apps</div>
+                  <div><strong>6</strong>Goals</div>
+                  <div><strong>2</strong>Assists</div>
                 </div>
 
                 <p>
-                  Murtaza is Elite FC’s main striker and a constant goal threat.
+                  Massab is Elite FC’s main striker and a constant goal threat.
                 </p>
               </div>
             </div>
@@ -1672,7 +1700,7 @@
                 onerror="this.style.display='none'"
               />
 
-              <span class="status-badge status-suspended">Suspended</span>
+              <span class="status-badge status-available">Available</span>
               ?
             </div>
 
@@ -1687,9 +1715,9 @@
 
               <div class="player-profile" id="profile-ahmad">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
-                  <div><strong>0</strong>Goals</div>
-                  <div><strong>0</strong>Assists</div>
+                  <div><strong>4</strong>Apps</div>
+                  <div><strong>2</strong>Goals</div>
+                  <div><strong>1</strong>Assists</div>
                 </div>
 
                 <p>
@@ -1700,11 +1728,11 @@
             </div>
           </article>
 
-          <article class="player-card">
+                    <article class="player-card">
             <div class="player-image">
               <img
-                src="images/abdullah.jpg"
-                alt="Abdullah R., Elite FC goalkeeper"
+                src="images/Mashood.jpg"
+                alt="Mashood., Elite FC Defender"
                 onerror="this.style.display='none'"
               />
 
@@ -1713,23 +1741,58 @@
             </div>
 
             <div class="player-info">
-              <span class="player-number">#12 · Goalkeeper</span>
-              <h3>Abdullah R.</h3>
-              <span class="player-position">GK</span>
+              <span class="player-number">#10 · DEF</span>
+              <h3>Mashood</h3>
+              <span class="player-position">Defender</span>
 
-              <button class="profile-button" data-profile="abdullah">
+              <button class="profile-button" data-profile="Mashood">
                 View profile
               </button>
 
-              <div class="player-profile" id="profile-abdullah">
+              <div class="player-profile" id="profile-Mashood">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
-                  <div><strong>0</strong>Clean sheets</div>
-                  <div><strong>0</strong>Saves</div>
+                  <div><strong>2</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>0</strong>Assists</div>
                 </div>
 
                 <p>
-                  Abdullah provides depth and competition in the goalkeeper position.
+                 Learning
+                </p>
+              </div>
+            </div>
+          </article>
+
+                              <article class="player-card">
+            <div class="player-image">
+              <img
+                src="images/Fateen.jpg"
+                alt="Fateen., Elite FC CenterBack"
+                onerror="this.style.display='none'"
+              />
+
+              <span class="status-badge status-available">Available</span>
+              ?
+            </div>
+
+            <div class="player-info">
+              <span class="player-number">#10 · DEF</span>
+              <h3>Fateen</h3>
+              <span class="player-position">CB</span>
+
+              <button class="profile-button" data-profile="Fateen">
+                View profile
+              </button>
+
+              <div class="player-profile" id="profile-Fateen">
+                <div class="profile-stats">
+                  <div><strong>2</strong>Apps</div>
+                  <div><strong>0</strong>Goals</div>
+                  <div><strong>1</strong>Assists</div>
+                </div>
+
+                <p>
+                 Plays Good.
                 </p>
               </div>
             </div>
@@ -1739,7 +1802,7 @@
             <div class="player-image">
               <img
                 src="images/saad.jpg"
-                alt="Saad Z., Elite FC defender"
+                alt="Saad Z., Elite FC Midfielder"
                 onerror="this.style.display='none'"
               />
 
@@ -1748,7 +1811,7 @@
             </div>
 
             <div class="player-info">
-              <span class="player-number">#14 · Defender</span>
+              <span class="player-number">#14 · Midfielder</span>
               <h3>Saad Z.</h3>
               <span class="player-position">Learning</span>
 
@@ -1758,13 +1821,13 @@
 
               <div class="player-profile" id="profile-saad">
                 <div class="profile-stats">
-                  <div><strong>0</strong>Apps</div>
+                  <div><strong>1</strong>Apps</div>
                   <div><strong>0</strong>Goals</div>
                   <div><strong>0</strong>Assists</div>
                 </div>
 
                 <p>
-                  Saad is developing as a defender and continues to improve
+                  Saad is developing as a Midfielder and continues to improve
                   with every session.
                 </p>
               </div>
@@ -1791,12 +1854,12 @@
 
           <div class="link-content">
             <span class="link-label">Instagram</span>
-            <h3>@elite_fcest2026</h3>
+            <h3>@elite_fcest25</h3>
             <p>Follow us for updates, matches, and inquiries.</p>
           </div>
 
           <a
-            href="https://www.instagram.com/elite_fcest2026/"
+            href="https://www.instagram.com/elite_fcest25/"
             target="_blank"
             rel="noopener noreferrer"
             class="button link-button"
@@ -1817,7 +1880,7 @@
           alt="Elite FC club crest"
         />
 
-        <p>© 2026 Elite FC. All rights reserved.</p>
+        <p>© 2025 Elite FC. All rights reserved.</p>
       </div>
 
       <div class="footer-links">
@@ -1919,6 +1982,133 @@
         }, 700);
       }
     });
+    (() => {
+  const mouseDevice = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  );
+
+  if (!mouseDevice.matches) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  const cursor = document.createElement("div");
+  cursor.className = "football-pointer";
+  cursor.textContent = "⚽";
+  cursor.setAttribute("aria-hidden", "true");
+  cursor.hidden = true;
+  document.body.appendChild(cursor);
+
+  // Only two faint copies for a small motion-blur effect.
+  const trails = [0.13, 0.06].map((opacity) => {
+    const element = document.createElement("div");
+    element.className = "football-trail";
+    element.textContent = "⚽";
+    element.style.opacity = opacity;
+    element.setAttribute("aria-hidden", "true");
+    element.hidden = true;
+    document.body.appendChild(element);
+    return element;
+  });
+
+  let x = 0;
+  let y = 0;
+  let previousX = 0;
+  let previousY = 0;
+  let visible = false;
+  let lastTime = 0;
+
+  const points = trails.map(() => ({ x: 0, y: 0 }));
+
+  function place(element, left, top) {
+    element.style.left = `${left}px`;
+    element.style.top = `${top}px`;
+  }
+
+  function hideCursor() {
+    visible = false;
+    cursor.hidden = true;
+    trails.forEach((trail) => {
+      trail.hidden = true;
+    });
+    document.documentElement.classList.remove("football-cursor");
+  }
+
+  document.addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "mouse") return;
+
+    x = event.clientX;
+    y = event.clientY;
+
+    if (!visible) {
+      previousX = x;
+      previousY = y;
+
+      points.forEach((point) => {
+        point.x = x;
+        point.y = y;
+      });
+    }
+
+    visible = true;
+    cursor.hidden = false;
+    place(cursor, x, y);
+    document.documentElement.classList.add("football-cursor");
+  });
+
+  document.documentElement.addEventListener(
+    "pointerleave",
+    hideCursor
+  );
+
+  window.addEventListener("blur", hideCursor);
+
+  function animate(time) {
+    const delta = Math.min((time - lastTime) || 16.7, 50);
+    lastTime = time;
+
+    if (visible) {
+      const moving = Math.hypot(x - previousX, y - previousY) > 0.2;
+      const smoothing = 1 - Math.exp(-delta / 24);
+
+      let targetX = x;
+      let targetY = y;
+
+      points.forEach((point, index) => {
+        point.x += (targetX - point.x) * smoothing;
+        point.y += (targetY - point.y) * smoothing;
+
+        // Keep the trail close to the ball, even during fast movement.
+        const offsetX = point.x - x;
+        const offsetY = point.y - y;
+        const distance = Math.hypot(offsetX, offsetY);
+        const maxDistance = (index + 1) * 5;
+
+        if (distance > maxDistance) {
+          point.x = x + (offsetX / distance) * maxDistance;
+          point.y = y + (offsetY / distance) * maxDistance;
+        }
+
+        place(trails[index], point.x, point.y);
+
+        trails[index].hidden =
+          reducedMotion.matches ||
+          (!moving && Math.hypot(point.x - x, point.y - y) < 0.5);
+
+        targetX = point.x;
+        targetY = point.y;
+      });
+
+      previousX = x;
+      previousY = y;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+})();
   </script>
 </body>
 </html>
